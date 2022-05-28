@@ -3,6 +3,8 @@ const rgbText = document.getElementById('rgb-color');
 const ballsParent = document.getElementById('color-balls');
 const balls = document.getElementsByClassName('ball');
 const correctColor = document.getElementById('correct-color');
+const gameState = document.getElementById('answer');
+
 // Gerador dos valores aleatórios do rgb;
 function randomRGBNumber() {
   return Math.round(Math.random() * 230);
@@ -26,7 +28,7 @@ function correctColorRandomizer() {
 function circleFilling() {
 	correctColorRandomizer()
 	for (let i = 0; i < balls.length; i += 1) {
-		if (balls[i] === correctColor) {
+		if (balls[i].id) {
 			balls[i].style.backgroundColor = `${rgbText.innerText}`;
 		} else {
 			balls[i].style.backgroundColor = randomRGBColor();
@@ -47,8 +49,23 @@ function circleLine() {
 	}
 	circleFilling()
 }
-
+// Função que verifica se a cor correta foi pressionada;
+function hitCheck(e) {
+	const ball = e;
+	if (ball.id) {
+		gameState.innerText = `Acertou!`;
+	} else {
+		gameState.innerText = `Errou! Tente novamente!`;
+	}
+}
+// Função que dispara os listeners das cores:
+function circleListeners() {
+	for (let i = 0; i < balls.length; i += 1) {
+		balls[i].addEventListener('click', (e) => hitCheck(e.target));		
+	}
+}
 window.onload = () => {
 	rgbCodeSetter();
 	circleLine();
+	circleListeners()
 };
