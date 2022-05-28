@@ -1,0 +1,33 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 5%;
+	text-align: center;
+	background-image: url('./imgs/bckgrnd.jpg');
+	background-size: cover;
+	font-size: 18px;
+}
+
+header, main {
+	margin: 5%;
+}
+
+section {
+	margin: 8%;
+	display: flex;
+	justify-content: space-around;
+}
+
+#title {
+	font-size: 2.3em;
+}
+
+.ball {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	border: 1px solid black;
+}
