@@ -26,7 +26,7 @@ function rgbCodeSetter() {
 }
 // Função que atribui aleatoriamente a um dos círculos a classe 'correct-color';
 function correctColorRandomizer() {
-  for (let i = 0; i < (balls.length - 1); i += 1) {
+  for (let i = 0; i < balls.length - 1; i += 1) {
     if (balls[i].id) {
       balls[i].removeAttribute('id');
     }
@@ -36,7 +36,7 @@ function correctColorRandomizer() {
 // Função que gera as cores dos círculos;
 function circleFilling() {
   correctColorRandomizer();
-  for (let i = 0; i < (balls.length - 1); i += 1) {
+  for (let i = 0; i < balls.length; i += 1) {
     if (balls[i].id) {
       balls[i].style.backgroundColor = `${rgbText.innerText}`;
     } else {
@@ -71,7 +71,7 @@ function listenersHandler(e) {
 // Função que dispara os listeners das cores que verifica se a cor correta
 // foi pressionada e interrompe os listeners:
 function circleListeners() {
-  for (let i = 0; i < (balls.length - 1); i += 1) {
+  for (let i = 0; i < balls.length - 1; i += 1) {
     balls[i].addEventListener('click', (e) => listenersHandler(e));
   }
 }
